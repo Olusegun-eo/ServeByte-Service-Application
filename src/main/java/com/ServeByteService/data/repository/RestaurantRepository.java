@@ -47,4 +47,4 @@ public class EnItemTypeConverter implements AttributeConverter<EnItemType, Strin
 
 
 //User==>SearchByCity==> Resturant(Are they in the same city)===>Meal(quantity * price)===>Make an Order==>
-//Payment=====>send Mail(text/email)
+//PaymentService=====>send Mail(text/email)
