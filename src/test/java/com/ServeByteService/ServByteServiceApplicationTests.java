@@ -13,12 +13,9 @@ import javax.sql.DataSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@Sql(scripts = "Database/insert.sql")
+//@Sql(scripts = "/data/insert.sql")
 @Slf4j
-
-
 class ServByteServiceApplicationTests {
-
 	@Value("${test.property.name}")
 	private String testName;
 

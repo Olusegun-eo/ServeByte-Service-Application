@@ -23,4 +23,6 @@ public class OrderMeal {
     @OneToMany
     private List<Restaurant> restaurantList; // Restaurant name, //Restaurant location;
 
+    @Enumerated(EnumType.STRING)
+    private City cityList;
 }

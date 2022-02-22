@@ -3,10 +3,7 @@ package com.ServeByteService.data.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -20,5 +17,7 @@ public class Logistics {
     private String logisticPhone;
     private Double logisticPrice;
     private String logisticLogo;
+
+    @Enumerated(EnumType.STRING)
     private City cityName;
 }
