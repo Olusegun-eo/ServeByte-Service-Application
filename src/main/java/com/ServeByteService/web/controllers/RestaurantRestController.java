@@ -27,8 +27,8 @@ public class RestaurantRestController {
 
     @GetMapping
     public ResponseEntity<?> findRestaurants(){
-        List<Restaurant> restuarantList = restaurantService.getAllRestaurants();
-        return ResponseEntity.status(HttpStatus.OK).body(restuarantList);
+        List<Restaurant> restaurantList = restaurantService.getAllRestaurants();
+        return ResponseEntity.status(HttpStatus.OK).body(restaurantList);
     }
 
     @PostMapping(consumes = {"multipart/form-data"})
@@ -42,9 +42,9 @@ public class RestaurantRestController {
     }
 
     @PatchMapping(path = "/{id}", consumes = "application/json-patch+json")
-    public ResponseEntity<?> updateRestaurantDetails(@PathVariable Long id, JsonPatch restuarantPatch){
+    public ResponseEntity<?> updateRestaurantDetails(@PathVariable Long id, JsonPatch restaurantPatch){
         try{
-            Restaurant updateRestaurant= restaurantService.updateRestaurantDetails(id, restuarantPatch);
+            Restaurant updateRestaurant= restaurantService.updateRestaurantDetails(id, restaurantPatch);
             return ResponseEntity.status(HttpStatus.OK).body(updateRestaurant);
         } catch (BusinessLogicException | Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
@@ -52,7 +52,6 @@ public class RestaurantRestController {
     }
 
 }
-
 
 
 //DOCUMENTAION ON Creating an SMS dashboard in Java with Spring Boot

@@ -17,7 +17,7 @@ public class PaystackPaymentServiceImpl implements PaymentService {
     public PaymentTransactionResponse initializeTransaction(PaymentTransactionRequest paymentRequest) throws RestClientException {
         String url = "https://api.paystack.co/transaction/initialize";
         HttpHeaders headers = new HttpHeaders();
-        String key = "pk_test_88e87e0db5ebb452e90efcbe539d4294df669470";
+        String key = "sk_test_c966b75bbe79b81b2d0ba147dd621561ff534ca3";
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("Authorization", "Bearer "+key);
         HttpEntity<PaymentTransactionRequest> entity =

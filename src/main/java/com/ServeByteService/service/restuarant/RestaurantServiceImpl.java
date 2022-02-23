@@ -72,7 +72,6 @@ public class RestaurantServiceImpl implements RestaurantService {
             }
         }catch(IOException e){ e.printStackTrace();  }
 
-
         restaurant.setRestaurantName(restaurantRequestDto.getName());
         restaurant.setRestaurantEmail(restaurantRequestDto.getEmail());
         restaurant.setRestaurantPhoneNumber(restaurantRequestDto.getPhoneNumber());
@@ -80,7 +79,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         restaurant.setCityName(City.valueOf(restaurantRequestDto.getCity().toString()));
         return restaurantRepository.save(restaurant);
     }
-
 
     private Restaurant saveOrUpdateRestaurant(Restaurant restaurant) throws BusinessLogicException {
         if(restaurant == null){ throw new BusinessLogicException("Product can not be null "); }
