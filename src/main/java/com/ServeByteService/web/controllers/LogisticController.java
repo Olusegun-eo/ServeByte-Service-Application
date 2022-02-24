@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/logistic")
 public class LogisticController {
 
     Logistics logistics;
@@ -44,8 +45,8 @@ public class LogisticController {
     @PatchMapping(path = "/{id}", consumes = "application/json-patch+json")
     public ResponseEntity<?> updateLogisticDetails(@PathVariable Long id, JsonPatch logisticPatch) {
         try {
-            Logistics updatedLogistic = logisticService.updateLogisticDetails(Long id, logisticPatch);
-            return ResponseEntity.status(HttpStatus.OK).body();
+            Logistics updatedLogistic = logisticService.updateLogisticDetails(id, logisticPatch);
+            return ResponseEntity.status(HttpStatus.OK).body(updatedLogistic);
         } catch (BusinessLogicException | Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }

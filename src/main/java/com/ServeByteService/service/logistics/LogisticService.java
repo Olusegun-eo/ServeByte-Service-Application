@@ -1,10 +1,8 @@
 package com.ServeByteService.service.logistics;
 
 import com.ServeByteService.data.dto.request.LogisticRequestDto;
-import com.ServeByteService.data.dto.request.RestaurantRequestDto;
 import com.ServeByteService.data.model.City;
 import com.ServeByteService.data.model.Logistics;
-import com.ServeByteService.data.model.Restaurant;
 import com.ServeByteService.web.exceptions.BusinessLogicException;
 import com.ServeByteService.web.exceptions.LogisticDoesNotExistException;
 import com.ServeByteService.web.exceptions.RestaurantDoesNotExistException;
@@ -18,6 +16,6 @@ public interface LogisticService {
     List<Logistics> getAllLogistics();
     Logistics findLogisticById(Long id) throws ServByteServiceApplicationException, RestaurantDoesNotExistException, LogisticDoesNotExistException;
     Logistics createLogistics(LogisticRequestDto logisticRequestDto) throws ServByteServiceApplicationException, IOException;
-    Restaurant updateLogisticDetails(Long id, JsonPatch patchPath) throws BusinessLogicException;
-    List<Logistics> findByCityName(City city) throws RestaurantDoesNotExistException;
+    Logistics updateLogisticDetails(Long id, JsonPatch patchPath) throws BusinessLogicException;
+    List<Logistics> findByCityName(City city) throws RestaurantDoesNotExistException, LogisticDoesNotExistException;
 }

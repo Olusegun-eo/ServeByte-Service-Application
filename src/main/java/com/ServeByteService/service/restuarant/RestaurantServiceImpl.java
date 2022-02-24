@@ -25,7 +25,6 @@ import java.util.Optional;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
-
     @Autowired
     private RestaurantRepository restaurantRepository;
 
@@ -85,7 +84,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         return restaurantRepository.save(restaurant);
     }
 
-
     @Override
     public Restaurant updateRestaurantDetails(Long restuarantId, JsonPatch restaurantPatch) throws BusinessLogicException{
         Optional<Restaurant> restaurantQuery =restaurantRepository.findById(restuarantId);
@@ -101,10 +99,12 @@ public class RestaurantServiceImpl implements RestaurantService {
         }
     }
 
+
     private Restaurant applyPatchToRestaurant(JsonPatch restaurantPatch, Restaurant targetRestaurant) throws JsonPatchException, JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode patched= restaurantPatch.apply(objectMapper.convertValue(targetRestaurant, JsonNode.class));
         return objectMapper.treeToValue(patched, Restaurant.class);
     }
+
 
 }
