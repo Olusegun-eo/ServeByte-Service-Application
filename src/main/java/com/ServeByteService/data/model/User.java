@@ -16,4 +16,6 @@ public class User {
     private String phoneNumber;
     @Column(length = 500)
     private String address;
+
+
 }

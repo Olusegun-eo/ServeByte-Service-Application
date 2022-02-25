@@ -1,6 +1,6 @@
 package com.ServeByteService.data.model;
 
-public enum PaystackBearer {
+public enum PayStackBearer {
     ACCOUNT, SUBACCOUNT;
 }
 

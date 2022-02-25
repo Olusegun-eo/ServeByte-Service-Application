@@ -2,7 +2,7 @@ package com.ServeByteService.service.meal;
 
 
 import com.ServeByteService.data.model.Meal;
-import com.ServeByteService.data.repository.MealRepository;
+import com.ServeByteService.data.repository.MealCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class MealServiceImpl implements MealService{
     List<Meal> meals = new ArrayList<>();
 
     @Autowired
-    MealRepository mealRepository;
+    MealCartRepository mealRepository;
 
     @Override
     public List<Meal> getAllMeals() {

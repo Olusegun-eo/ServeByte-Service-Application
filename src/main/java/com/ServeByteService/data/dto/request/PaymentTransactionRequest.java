@@ -1,8 +1,7 @@
 package com.ServeByteService.data.dto.request;
 
 import com.ServeByteService.data.model.Channels;
-import com.ServeByteService.data.model.PaystackBearer;
-import lombok.AllArgsConstructor;
+import com.ServeByteService.data.model.PayStackBearer;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -17,7 +16,7 @@ public class PaymentTransactionRequest {
     private Channels[] channels;
     private String subAccount;
     private Integer transaction_charge;
-    private PaystackBearer paystackBearer= PaystackBearer.ACCOUNT;
+    private PayStackBearer paystackBearer= PayStackBearer.ACCOUNT;
 
     public PaymentTransactionRequest(String amount, String email) {
         this.amount = BigDecimal.valueOf(Long.parseLong(amount));

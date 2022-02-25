@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -20,11 +17,24 @@ public class MealItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long mealId;
-    private String mealName;
-    private Double mealPrice;
-    private String logoUrl;
-    private String description;
-    @CreationTimestamp
-    private LocalDateTime mealPrepTime;
+    private Integer quantityAddedCart;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Meal meal;
+
+    public MealItem(Meal meal, Integer quantityAddedCart){
+        if(quantityAddedCart <= meal.getQuantity()){
+            this.quantityAddedCart = quantityAddedCart;
+        }
+        this.meal = meal;
+    }
+
+    public void setQuantityAddedCart(Integer quantityAddedCart){
+        if(meal.getQuantity() >=quantityAddedCart){
+            this.quantityAddedCart= quantityAddedCart;
+        } else {
+            this.quantityAddedCart=0;
+        }
+    }
 }
+
 
