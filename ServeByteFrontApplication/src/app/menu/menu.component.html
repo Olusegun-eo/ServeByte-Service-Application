@@ -1,0 +1,70 @@
+<div class="section">
+  <h1 id="menu-title">Meal</h1>
+  <div class="wrapping container">
+    <div class="col-12 container portion">
+      <div class="row">
+        <div class="col-12">
+          <h2>BRUNCH</h2>
+          <p>Saturdays and Sundays from 10AM to 3PM</p>
+        </div>
+      </div>
+      <div *ngFor="let key of objectKeys(brunch)" class="row subsection">
+        <div class="col-12">
+          <h3>{{ key | uppercase }}</h3>
+          <div *ngFor="let item of objectKeys(brunch[key])" class="row">
+            <div class="col-12">
+              <div class="item">
+                <h4>{{ item }} #{{ brunch[key][item].price }}</h4>
+                <p>{{ brunch[key][item].description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 container portion">
+      <div class="row">
+        <div class="col-12">
+          <h2>DINNER</h2>
+          <p>Daily 5PM to Close</p>
+        </div>
+      </div>
+      <div *ngFor="let key of objectKeys(dinner)" class="row subsection">
+        <div class="col-12">
+          <h3>{{ key | uppercase }}</h3>
+          <div *ngFor="let item of objectKeys(dinner[key])" class="row">
+            <div class="col-12">
+              <div class="item">
+                <h4>{{ item }} #{{ dinner[key][item].price }}</h4>
+                <p>{{ dinner[key][item].description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="allday" class="row">
+      <div class="col-12 container portion">
+        <div class="row">
+          <div class="col-12">
+            <h2>ALL DAY</h2>
+          </div>
+        </div>
+        <div *ngFor="let key of objectKeys(daily)" class="row subsection">
+          <div class="col-12">
+            <h3>{{ key | uppercase }}</h3>
+            <div *ngFor="let item of objectKeys(daily[key])" class="row">
+              <div class="col-12">
+                <div class="item">
+                  <h4>{{ item }} #{{ daily[key][item].price }}</h4>
+                  <p>{{ daily[key][item].description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
